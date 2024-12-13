@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry Baby</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .message {
+      color: black;
+      font-size: 20px;
+      position: absolute;
+      animation: fadeInOut 1.5s infinite;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+    const totalMessages = 200;
+
+    function generateMessages() {
+      container.innerHTML = ''; // Clear previous messages
+      for (let i = 0; i < totalMessages; i++) {
+        const message = document.createElement('div');
+        message.classList.add('message');
+        message.textContent = "I'm sorry baby";
+        
+        // Set a random position for each message
+        message.style.top = `${Math.random() * 100}vh`;
+        message.style.left = `${Math.random() * 100}vw`;
+        container.appendChild(message);
+      }
+    }
+
+    function resetMessages() {
+      generateMessages();
+    }
+
+    setInterval(resetMessages, 1500); // Update every 1.5 seconds
+    generateMessages(); // Initial load
+  </script>
+</body>
+</html>
